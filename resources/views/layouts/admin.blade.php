@@ -91,7 +91,15 @@
                             <a href="{{route('publisher_application')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                    Application Form
+                                    General Information
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item menu-open">
+                            <a href="{{route('publisher_showroom')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-sign"></i>
+                                <p>
+                                    Showroom Details
                                 </p>
                             </a>
                         </li>

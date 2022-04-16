@@ -21,6 +21,10 @@ class PublisherController extends Controller
         return view('publishers.application_form');
     }
 
+    public function publisherShowroom(){
+        return view('publishers.showroom');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
