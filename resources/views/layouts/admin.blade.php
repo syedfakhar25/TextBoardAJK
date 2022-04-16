@@ -77,6 +77,7 @@
                             </p>
                         </a>
                     </li>
+                    @if(Auth::user()->user_type == 'admin')
                     <li class="nav-item menu-open">
                         <a href="{{route('publishers.index')}}" class="nav-link ">
                             <i class="nav-icon fas fa-book"></i>
@@ -85,6 +86,16 @@
                             </p>
                         </a>
                     </li>
+                    @elseif(Auth::user()->user_type == 'publisher')
+                        <li class="nav-item menu-open">
+                            <a href="{{route('publisher_application')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Application Form
+                                </p>
+                            </a>
+                        </li>
+                    @endif
 
                     <li class="nav-item">
                         <a class="dropdown-item" href="{{ route('logout') }}"

@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\Admin\DahboardController::class, 'index'])->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DahboardController::class, 'index'])->name('dashboard');
+   //Publisher Management Routes
+    Route::get('/publisher_application', [\App\Http\Controllers\Admin\PublisherController::class, 'applicationForm'])->name('publisher_application');
+    Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
 
-Route::get('/home', [App\Http\Controllers\Admin\DahboardController::class, 'index'])->name('home');
-Route::get('/dashboard', [App\Http\Controllers\Admin\DahboardController::class, 'index'])->name('dashboard');
-Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
+});
+

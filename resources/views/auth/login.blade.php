@@ -3,11 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="" align="center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/AzadKashmirSeal.png" style="height: 50px !important;">
+                        <div class="py-2"><b>Azad Jammu & Kashmir Text Book Board </b></div>
+                        <div class="pb-4"><b>Publishers Management PORTAL</b></div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -17,6 +17,10 @@ class PublisherController extends Controller
         return view('publishers.index');
     }
 
+    public function applicationForm(){
+        return view('publishers.application_form');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

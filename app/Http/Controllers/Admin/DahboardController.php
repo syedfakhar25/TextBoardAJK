@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DahboardController extends Controller
 {
@@ -14,7 +15,16 @@ class DahboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        if(Auth::user()->user_type == 'admin'){
+            return view('admin.dashboard');
+        }
+        elseif(Auth::user()->user_type == 'publisher'){
+            return view('publishers.dashboard');
+        }
+        else{
+            return view('admin.dashboard');
+        }
+
     }
 
     /**
