@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Publisher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PublisherController extends Controller
+class ShowroomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,7 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        return view('publishers.index');
-    }
-
-    public function applicationForm(){
-        return view('publishers.application_form');
-    }
-
-    public function publisherShowroom(){
-        return view('publishers.showroom');
+        return view('showroom.index');
     }
 
     /**
@@ -43,7 +35,7 @@ class PublisherController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('showroom.index');
+        return redirect()->route('publisher_profile');
     }
 
     /**
@@ -54,7 +46,7 @@ class PublisherController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -89,9 +81,5 @@ class PublisherController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function publisherProfile(){
-        dd('profile');
     }
 }

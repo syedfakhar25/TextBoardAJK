@@ -96,7 +96,7 @@
                             </a>
                         </li>
                         <li class="nav-item menu-open">
-                            <a href="{{route('publisher_showroom')}}" class="nav-link ">
+                            <a href="{{route('showroom.index')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-sign"></i>
                                 <p>
                                     Showroom Details

@@ -19,8 +19,8 @@
                         <div class="card-body">
                             <h4><b style="color: #0d6efd "><em>General Information</em></b></h4>
                             <hr>
-                            <form method="POST" action="" enctype="multipart/form-data">
-                                @method('PUT')
+                            <form method="POST" action="{{route('publishers.store')}}" enctype="multipart/form-data">
+                                @method('POST')
                                 @csrf
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
@@ -126,7 +126,7 @@
                                         <textarea class="form-control" name="address" rows="3" placeholder="Enter Adrress ..."></textarea>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <button class="btn btn-primary" type="submit">Save & Next</button>
 
                             </form>
                         </div>
