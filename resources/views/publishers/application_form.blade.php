@@ -69,15 +69,15 @@
                                 <div class="form-row">
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Name</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Father Name</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="father_name" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Date of Birth</label>
-                                        <input type="date" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="date" name="dob" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault02">Gender</label>
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Marital Status</label>
-                                        <select class="form-control" name="gender">
+                                        <select class="form-control" name="marital_status">
                                             <option disabled value="">--Select--</option>
                                             <option value="sole" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Single</option>
                                             <option value="limited" >Married</option>
@@ -99,31 +99,31 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Husband Name</label><em style="color: grey">(for Married Women)</em>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="husband_name" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">CNIC No.</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="cnic" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Father CNIC No.</label><em style="color: grey">(if any)</em>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="father_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Husband CNIC No.</label><em style="color: grey">(if any)</em>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="husband_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Email</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="email" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault02">Present Residential Address</label>
-                                        <textarea class="form-control" name="address" rows="3" placeholder="Enter Adrress ..."></textarea>
+                                        <textarea class="form-control" name="present_address" rows="3" placeholder="Enter Adrress ..."></textarea>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault02">Permenant Residential Address</label>
-                                        <textarea class="form-control" name="address" rows="3" placeholder="Enter Adrress ..."></textarea>
+                                        <textarea class="form-control" name="permanent_address" rows="3" placeholder="Enter Adrress ..."></textarea>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Save & Next</button>

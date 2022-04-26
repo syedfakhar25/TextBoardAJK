@@ -1,4 +1,4 @@
-@section('title') Application Form @endsection
+@section('title') Showroom Form @endsection
 @extends('layouts.admin')
 
 @section('content')
@@ -25,19 +25,19 @@
                                 <div class="form-row">
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Dimensions (Sq. Ft)</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="dimensions" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Location</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="location" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Property Number</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="property_number" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Owned or Rented</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="showroom_owner" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -48,27 +48,27 @@
                                 <div class="form-row">
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Color</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="color" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">No. of Machines</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="no_of_machines" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Size</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="size" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Model</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="model" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Make</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="make" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Impressions/hour</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="impressions"  class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -79,7 +79,7 @@
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Alternative Power Arrangements</label>
-                                        <select class="form-control" name="gender">
+                                        <select class="form-control" name="alternative_arrangements">
                                             <option disabled value="">--Select--</option>
                                             <option value="sole" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Yes</option>
                                             <option value="limited" >No</option>
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Power Generator Capacity (K.W)</label>
-                                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+                                        <input type="text" name="generator_capacity" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
                                     </div>
 
                                 </div>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
-                                        <select class="form-control" name="goddown_owner">
+                                        <select class="form-control" name="godown_owner">
                                             <option disabled value="">--Owned or Rented--</option>
                                             <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
                                             <option value="rented" >Rented</option>
@@ -256,11 +256,11 @@
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Dimension (Area in cub. ft.)</label>
-                                        <input type="text" name="goddown_area" class="form-control" id="validationDefault01" placeholder="e.g 5" required>
+                                        <input type="text" name="godown_area" class="form-control" id="validationDefault01" placeholder="e.g 5" required>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Address</label>
-                                        <textarea class="form-control" name="goddown_address" rows="3" placeholder="Enter Adrress ..."></textarea>
+                                        <textarea class="form-control" name="godown_address" rows="3" placeholder="Enter Adrress ..."></textarea>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Save & Next</button>
