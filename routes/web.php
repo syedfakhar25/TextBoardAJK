@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
     Route::resource('showroom', \App\Http\Controllers\Publisher\ShowroomController::class);
+    Route::resource('documents', \App\Http\Controllers\Publisher\DocumentController::class);
     Route::resource('printmachine', \App\Http\Controllers\Publisher\PrintMachineController::class);
 
 });

@@ -103,6 +103,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item menu-open">
+                            <a href="{{route('publisher_profile')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Publisher Profile
+                                </p>
+                            </a>
+                        </li>
                     @endif
 
                     <li class="nav-item">

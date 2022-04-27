@@ -1,4 +1,4 @@
-@section('title') Showroom Form @endsection
+@section('title') Edit Showroom Form @endsection
 @extends('layouts.admin')
 
 @section('content')
@@ -19,25 +19,25 @@
                         <div class="card-body">
                             <h5><b style="color: #0d6efd "><em>1. Showroom</em></b></h5>
                             <hr>
-                            <form method="POST" action="{{route('showroom.store')}}" enctype="multipart/form-data">
-                                @method('POST')
+                            <form method="POST" action="{{route('showroom.update', $show_room[0]->id)}}" enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="form-row">
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Dimensions (Sq. Ft)</label>
-                                        <input type="text" name="dimensions" class="form-control" id="validationDefault01" placeholder="" value="{{old('dimensions')}}" >
+                                        <input type="text" name="dimensions" class="form-control" id="validationDefault01" placeholder="" value="{{$show_room[0]->dimensions}}" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Location</label>
-                                        <input type="text" name="location" class="form-control" id="validationDefault01" placeholder="" value="{{old('dimensions')}}" >
+                                        <input type="text" name="location" class="form-control" id="validationDefault01" placeholder="" value="{{$show_room[0]->location}}" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Property Number</label>
-                                        <input type="text" name="property_number" class="form-control" id="validationDefault01" placeholder="" value="{{old('property_number')}}" >
+                                        <input type="text" name="property_number" class="form-control" id="validationDefault01" placeholder="" value="{{$show_room[0]->property_number}}" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Owned or Rented</label>
-                                        <input type="text" name="showroom_owner" class="form-control" id="validationDefault01" placeholder="" value="{{old('showroom_owner')}}" >
+                                        <input type="text" name="showroom_owner" class="form-control" id="validationDefault01" placeholder="" value="{{$show_room[0]->showroom_owner}}" >
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -48,27 +48,27 @@
                                 <div class="form-row">
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Color</label>
-                                        <input type="text" name="color" class="form-control" id="validationDefault01" placeholder="" value="{{old('color')}}">
+                                        <input type="text" name="color" class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->color}}">
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">No. of Machines</label>
-                                        <input type="text" name="no_of_machines" class="form-control" id="validationDefault01" placeholder="" value="{{old('no_of_machines')}}" >
+                                        <input type="text" name="no_of_machines" class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->no_of_machines}}" >
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Size</label>
-                                        <input type="text" name="size" class="form-control" id="validationDefault01" placeholder="" value="{{old('size')}}" >
+                                        <input type="text" name="size" class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->size}}" >
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Model</label>
-                                        <input type="text" name="model" class="form-control" id="validationDefault01" placeholder="" value="{{old('model')}}" >
+                                        <input type="text" name="model" class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->model}}" >
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Make</label>
-                                        <input type="text" name="make" class="form-control" id="validationDefault01" placeholder="" value="{{old('make')}}" >
+                                        <input type="text" name="make" class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->make}}" >
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label for="validationDefault01">Impressions/hour</label>
-                                        <input type="text" name="impressions"  class="form-control" id="validationDefault01" placeholder="" value="{{old('impressions')}}" >
+                                        <input type="text" name="impressions"  class="form-control" id="validationDefault01" placeholder="" value="{{$printing_machine[0]->impressions}}" >
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -81,13 +81,13 @@
                                         <label for="validationDefault01">Alternative Power Arrangements</label>
                                         <select class="form-control" name="alternative_arrangements">
                                             <option disabled value="">--Select--</option>
-                                            <option value="yes" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Yes</option>
-                                            <option value="no" >No</option>
+                                            <option value="yes" {{ $power_arrangements[0]->alternative_arrangements == 'yes' ? 'selected' : '' }}>Yes</option>
+                                            <option value="no" {{ $power_arrangements[0]->alternative_arrangements == 'no' ? 'selected' : '' }}>No</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Power Generator Capacity (K.W)</label>
-                                        <input type="text" name="generator_capacity" class="form-control" id="validationDefault01" placeholder="" value="{{old('generator_capacity')}}" >
+                                        <input type="text" name="generator_capacity" class="form-control" id="validationDefault01" placeholder="" value="{{$power_arrangements[0]->generator_capacity}}" >
                                     </div>
 
                                 </div>
@@ -101,16 +101,16 @@
                                         <label for="validationDefault01">No. of Automatic folding machine (s)</label>
                                         <select class="form-control" name="auto_machine">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->auto_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->auto_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">No. of saddle stitching machines</label>
                                         <select class="form-control" name="stich_machine">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
 
@@ -118,8 +118,8 @@
                                         <label for="validationDefault01">No. of sewing machines</label>
                                         <select class="form-control" name="sewing_machine">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <br>
@@ -128,48 +128,48 @@
                                         <label for="validationDefault01">No of single clamp machine</label>
                                         <select class="form-control" name="single_clamp">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">No of three clamps machine</label>
                                         <select class="form-control" name="three_clamp">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">No of five clamps machine</label>
                                         <select class="form-control" name="five_clamp">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">No of upto ten clamps machine & above</label>
                                         <select class="form-control" name="ten_clamps">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Single knife trimmer</label>
                                         <select class="form-control" name="single_knife">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Three knives trimmer</label>
                                         <select class="form-control" name="three_knives">
                                             <option disabled value="">--Select--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="contracted" >Contracted</option>
+                                            <option value="owned" {{ $binding[0]->stich_machine == 'owned' ? 'selected' : '' }}>Owned</option>
+                                            <option value="contracted" {{ $binding[0]->stich_machine == 'contracted' ? 'selected' : '' }}>Contracted</option>
                                         </select>
                                     </div>
 
@@ -186,11 +186,11 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Financial Year</label>
-                                        <input type="text" name="financial_year" class="form-control" id="validationDefault01" placeholder="2021-22" >
+                                        <input type="text" name="financial_year" class="form-control" id="validationDefault01" value="{{$financial_position[0]->financial_year}}" placeholder="2021-22" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">RS/-</label>
-                                        <input type="text" name="yearly_amount" class="form-control" id="validationDefault01" placeholder="e.g; 45000" value="" >
+                                        <input type="text" name="yearly_amount" class="form-control" id="validationDefault01" placeholder="e.g; 45000" value="{{$financial_position[0]->yearly_amount}}" >
                                     </div>
                                     <div class="col-md-3" style="margin-top: 3%">
                                         <a class="btn btn-danger"><i class="fa fa-plus-circle"></i>Add More</a>
@@ -202,7 +202,7 @@
                                         </b>
                                     </div>
                                     <div class="col-md-3 mb-3">
-                                        <input type="text" name="assets_amount" class="form-control" id="validationDefault01" placeholder="e.g; 45000" value="" >
+                                        <input type="text" name="assets_amount" class="form-control" id="validationDefault01" placeholder="e.g; 45000" value="{{$financial_position[0]->assets_amount}}" >
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -229,15 +229,15 @@
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Number of years in publishing trade or AJKTBB</label>
-                                        <input type="text" name="years_in_publishing" class="form-control" id="validationDefault01" placeholder="e.g 5" >
+                                        <input type="text" name="years_in_publishing" class="form-control" value={{$publishing[0]->years_in_publishing}} id="validationDefault01" placeholder="e.g 5" >
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Number of standard books published other than AJKTBB textbooks</label>
-                                        <input type="text" name="no_of_books" class="form-control" id="validationDefault01" placeholder="e.g 5" >
+                                        <input type="text" name="no_of_books" class="form-control" value={{$publishing[0]->no_of_books}} id="validationDefault01" placeholder="e.g 5" >
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Number of Holy Quran published (Colour / Black & white)</label>
-                                        <input type="text" name="no_of_qurans" class="form-control" id="validationDefault01" placeholder="e.g 5" >
+                                        <input type="text" name="no_of_qurans" class="form-control" value={{$publishing[0]->no_of_qurans}} id="validationDefault01" placeholder="e.g 5" >
                                     </div>
                                 </div>
 
@@ -250,20 +250,20 @@
                                     <div class="col-md-12 mb-3">
                                         <select class="form-control" name="godown_owner">
                                             <option disabled value="">--Owned or Rented--</option>
-                                            <option value="owned" {{--{{ $user->gender == 'male' ? 'selected' : '' }}--}}>Owned</option>
-                                            <option value="rented" >Rented</option>
+                                            <option value="owned" {{--{{ $godown[0]->godown_owner == 'owned' ? 'selected' : '' }}--}}>Owned</option>
+                                            <option value="rented" {{--{{ $godown->godown_owner == 'rented' ? 'selected' : '' }}--}}>Rented</option>
                                         </select>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Dimension (Area in cub. ft.)</label>
-                                        <input type="text" name="godown_area" class="form-control" id="validationDefault01" placeholder="e.g 5" >
+                                        <input type="text" name="godown_area" value="{{$godown[0]->godown_area}}" class="form-control" id="validationDefault01" placeholder="e.g 5" >
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="validationDefault01">Address</label>
-                                        <textarea class="form-control" name="godown_address" rows="3" placeholder="Enter Adrress ..."></textarea>
+                                        <textarea class="form-control" name="godown_address" rows="3" placeholder="Enter Adrress ...">{{$godown[0]->godown_address}}</textarea>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Save & Next</button>
+                                <button class="btn btn-primary" type="submit">Update & Next</button>
 
                             </form>
                         </div>

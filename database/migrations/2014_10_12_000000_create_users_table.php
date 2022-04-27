@@ -28,6 +28,16 @@ return new class extends Migration
             $table->string('present_address')->nullable();
             $table->string('permanent_address')->nullable();
 
+            $table->string('firm_name')->nullable();
+            $table->string('firm_phone')->nullable();
+            $table->string('firm_cell')->nullable();
+            $table->string('firm_address')->nullable();
+            $table->string('firm_status')->nullable();
+            $table->string('firm_tax_no')->nullable();
+            $table->string('firm_gst_no')->nullable();
+
+
+
             $table->string('user_type')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
