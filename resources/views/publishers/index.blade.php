@@ -21,9 +21,9 @@
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         <h3 class="card-title">Publisher's List &nbsp;
-                            <a href="{{route('publishers.store')}}" type="button" class="btn btn-primary">
+                           {{-- <a href="{{route('publishers.store')}}" type="button" class="btn btn-primary">
                                 Add new <i class="fa fa-plus-circle"></i>
-                            </a>
+                            </a>--}}
                         </h3>
                     </div>
 
@@ -33,15 +33,31 @@
                             <tr>
                                 <th>S. No</th>
                                 <th>Name</th>
-                                <th>Action</th>
+                                <th>Firm Name</th>
+                                <th>Showroom #</th>
+                                <th>Owner #</th>
+                                <th>Status of Firm</th>
+                                <th>National Tax No</th>
+                                <th>GST No</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>ABC</td>
-                                <td><i class="fa fa-pen" style="color: green"></i> <i class="fa fa-trash" style="color: red"></i></td>
-                            </tr>
+                            <?php $count = 1;?>
+                                @foreach($publishers as $publisher)
+                                    <tr>
+                                        <td>{{$count++}}</td>
+                                        <td><a href="{{route('publisher_profile_admin', $publisher->id)}}">
+                                            {{$publisher->name}}
+                                            </a>
+                                        </td>
+                                        <td>{{$publisher->firm_name}}</td>
+                                        <td>{{$publisher->firm_phone}}</td>
+                                        <td>{{$publisher->firm_cell}}</td>
+                                        <td>{{$publisher->firm_status}}</td>
+                                        <td>{{$publisher->firm_tax_no}}</td>
+                                        <td>{{$publisher->firm_gst_no}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

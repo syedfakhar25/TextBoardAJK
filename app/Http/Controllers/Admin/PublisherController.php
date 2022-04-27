@@ -23,7 +23,13 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        return view('publishers.index');
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        if(Auth::user()->user_type == 'admin'){
+            return view('publishers.index')->with([
+                'publishers' => $users
+            ]);
+        }
+
     }
 
     public function applicationForm(){
@@ -142,6 +148,29 @@ class PublisherController extends Controller
 
         return view('publishers.profile')->with([
             'user' => Auth::user(),
+            'show_room' => $show_room,
+            'printing_machine' => $printing_machine,
+            'power_arrangements' => $power_arrangements,
+            'binding' => $binding,
+            'financial_position' =>$financial_position,
+            'publishing' => $publishing,
+            'godown'=>$godown
+        ]);
+    }
+    //for showing to admin
+    public function publisherProfileAdmin($id){
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $show_room = Showroom::where('user_id', $user_id)->first();
+        $printing_machine = PrintingMachine::where('user_id', $user_id)->first();
+        $power_arrangements = PowerArrangement::where('user_id', $user_id)->first();
+        $binding = BindingFacility::where('user_id', $user_id)->first();
+        $financial_position = FinancialPosition::where('user_id', $user_id)->get();
+        $publishing = PublishingExperience::where('user_id', $user_id)->first();
+        $godown = GodownFacility::where('user_id', $user_id)->first();
+
+        return view('publishers.profile')->with([
+            'user' => $user,
             'show_room' => $show_room,
             'printing_machine' => $printing_machine,
             'power_arrangements' => $power_arrangements,

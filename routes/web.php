@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     //Publisher Management Routes
     Route::get('/publisher_application', [\App\Http\Controllers\Admin\PublisherController::class, 'applicationForm'])->name('publisher_application');
     Route::get('/publisher_profile', [\App\Http\Controllers\Admin\PublisherController::class, 'publisherProfile'])->name('publisher_profile');
+    Route::get('/publisher_profile_admin/{id}', [\App\Http\Controllers\Admin\PublisherController::class, 'publisherProfileAdmin'])->name('publisher_profile_admin');
 
 
 
