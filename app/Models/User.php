@@ -66,4 +66,8 @@ class User extends Authenticatable
         return $this->hasOne(GodownFacility::class,'user_id');
     }
 
+    public function document(){
+        return $this->hasOne(Document::class,'user_id');
+    }
+
 }

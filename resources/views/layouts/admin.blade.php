@@ -91,23 +91,23 @@
                             <a href="{{route('publisher_application')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                    General Information
+                                    1. Initial Registration
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item menu-open">
-                            <a href="{{route('showroom.index')}}" class="nav-link ">
+                            <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-sign"></i>
                                 <p>
-                                    Showroom Details
+                                    2. Apply for Books
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item menu-open">
-                            <a href="{{route('publisher_profile')}}" class="nav-link ">
+                            <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
-                                    Publisher Profile
+                                    3. Phases
                                 </p>
                             </a>
                         </li>
@@ -136,10 +136,10 @@
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    {{--<footer class="main-footer">
         <strong>Copyright &copy; 2022 <a href="https://adminlte.io"></a>.</strong>
         All rights reserved.
-    </footer>
+    </footer>--}}
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

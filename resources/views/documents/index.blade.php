@@ -15,15 +15,54 @@
                 <div class="col-md-12">
                     <!-- general form elements disabled -->
                     <div class="card">
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <h5><b style="color: #0d6efd "><em>1. Showroom</em></b></h5>
                             <hr>
-                            <form method="POST" action="{{route('showroom.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('documents.store')}}" enctype="multipart/form-data">
                                 @method('POST')
                                 @csrf
                                 <div class="form-row">
-
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">CNIC of Proprietor/Director</label>
+                                        <input type="file" name="cnic" class="form-control" id="customFile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">CNIC of Father/Husband</label>
+                                        <input type="file" name="father_cnic" class="form-control" id="customFile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">Copy of Declaration</label>
+                                        <input type="file" name="declaration" class="form-control" id="customFile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">Copy of Purchased deed</label>
+                                        <input type="file" name="purchase_deed" class="form-control" id="customFile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">Copy of Rent deed</label>
+                                        <input type="file" name="rent_deed" class="form-control" id="customFile" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">Electricity Bill</label>
+                                        <input type="file" name="electricity_bill" class="form-control" id="customFile" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr width="100%">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label" for="customFile">Purchase Voucher of Equipment (Printing, Binding etc)</label>
+                                        <input type="file" name="equipment_voucher" class="form-control" id="customFile"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <br><br>
                                 </div>
 
                                 <button class="btn btn-primary" type="submit">Save & Next</button>

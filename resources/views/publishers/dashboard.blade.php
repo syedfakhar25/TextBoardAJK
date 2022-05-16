@@ -5,11 +5,11 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            {{--<div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
+                </div>
+            </div>--}}
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="text-center text-black-50" style="border: 2px solid red; border-radius: 45px">
@@ -24,6 +24,9 @@
                     @endif
                 </div>
                 <!-- ./col -->
+            </div>
+            <div class="row">
+                <h4 style="color: #0d6efd; font-weight: bold"><em>A) Initial Registration</em></h4>
             </div>
             <div class="row">
                 <div class="info-box col-md-3">
@@ -45,20 +48,47 @@
                     <!-- /.info-box-content -->
                 </div>
                 <div class="info-box col-md-3">
-                    <a href="#" class="info-box-icon bg-primary elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                    <a href="{{route('documents.index')}}" class="info-box-icon bg-primary elevation-1"><i class="fas fa-angle-double-right"></i></a>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Step 3</span>
-                        <a href="#" class="info-box-number">Documents</a>
+                        <a href="{{route('documents.index')}}" class="info-box-number">Documents</a>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <div class="info-box col-md-3">
-                    <a href="#" class="info-box-icon bg-dark elevation-1"><i class="fas fa-user"></i></a>
+                    <a href="#" class="info-box-icon bg-dark elevation-1"><i class="fas fa-angle-double-right"></i></a>
 
                     <div class="info-box-content">
-                        <span class="info-box-text"></span>
-                        <a href="{{route('publisher_profile')}}" class="info-box-number">Profile</a>
+                        <span class="info-box-text">Step 4</span>
+                        <a href="#" class="info-box-number">Apply Now</a>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+            </div>
+
+            <div class="row">
+                <hr width="100%">
+            </div>
+            <div class="row">
+                <h4 style="color: #0d6efd; font-weight: bold"><em>B) Apply for Books against the Ad</em></h4>
+            </div>
+            <div class="row">
+                <div class="info-box col-md-3">
+                    <a href="#" class="info-box-icon bg-danger elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Step 1</span>
+                        <a href="#" class="info-box-number">
+                            Select Books
+                        </a>
+                    </div>
+                </div>
+                <div class="info-box col-md-3">
+                    <a href="#" class="info-box-icon bg-success elevation-1"><i class="fas fa-angle-double-right"></i></a>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Step 2</span>
+                        <a href="#" class="info-box-number">Apply </a>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

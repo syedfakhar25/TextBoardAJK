@@ -145,7 +145,7 @@ class ShowroomController extends Controller
         $godown_facility->godown_address = $request->godown_address;
         $godown_facility->save();
 
-        return redirect()->route('publisher_profile');
+        return redirect()->route('documents.index');
     }
 
     /**
@@ -268,7 +268,7 @@ class ShowroomController extends Controller
         $godown_facility->update();
 
 
-        return redirect()->route('publisher_profile');
+        return redirect()->route('documents.index');
     }
 
     /**
