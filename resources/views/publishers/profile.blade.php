@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Publisher Profile</h1>
+                    <h1 class="m-0">Profile for Initial Registration</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             <div class="row">
@@ -17,7 +17,23 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <h5><b><em>1. General Information</em></b></h5>
+                            <div class="row" >
+                                <h5 style="color: green" align="center">
+                                    <em>Go through the information carefully, if anything is missing click edit button then
+                                        <a href="{{route('submit_registration')}}" style="color: red "><b><u>Submit</u></b></a>
+                                    </em>
+                                </h5>
+                                <hr width="100%">
+                            </div>
+                            <h5><b><em>Challan</em></b></h5>
+                            <div class="row">
+                                <img src="{{asset('publisher_register/'. $register_publisher['challan_image'])}}   " alt="img" height="300px" >
+
+                            </div>
+                            <div class="row">
+                                <br>
+                            </div>
+                            <h5><b><em>1. General Information</em> &nbsp; <a href="{{route('publisher_application')}}" class="btn btn-danger">Edit</a></b></h5>
                             <div class="row">
                                 <table class="table table-bordered">
                                     <tbody>
@@ -111,7 +127,7 @@
                                 </table>
                             </div>
                             <div class="row"><hr></div>
-                            <h5><b><em>3. DETAIL OF INFRASTRUCTURE & FACILITIES</em></b></h5>
+                            <h5><b><em>3. DETAIL OF INFRASTRUCTURE & FACILITIES</em> &nbsp; <a href="{{route('showroom.index')}}" class="btn btn-danger">Edit</a></b></h5>
                             <div class="row">
                                 <b>i) SHOWROOM </b>
                                 <table class="table table-bordered">

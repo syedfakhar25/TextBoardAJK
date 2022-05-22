@@ -93,7 +93,7 @@ class DocumentController extends Controller
         $documents->save();
 
         $document = Document::where('user_id', Auth::user()->id)->get();
-        return redirect()->back()->with([
+        return redirect()->route('initial_registration.index')->with([
             'success'=> 'Documents Added Successfully!',
             'documnet' => $document
             ]);
@@ -193,7 +193,7 @@ class DocumentController extends Controller
         $documents->update();
 
         $document = Document::where('user_id', Auth::user()->id)->get();
-        return redirect()->back()->with([
+        return redirect()->route('initial_registration.index')->with([
             'success'=> 'Documents Updated Successfully!',
             'documnet' => $document
         ]);

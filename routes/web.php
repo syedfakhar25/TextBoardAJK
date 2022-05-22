@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
     Route::resource('showroom', \App\Http\Controllers\Publisher\ShowroomController::class);
     Route::resource('documents', \App\Http\Controllers\Publisher\DocumentController::class);
+    Route::resource('initial_registration', \App\Http\Controllers\Publisher\InitialRegisterationController::class);
+    Route::get('/submit_registration', [\App\Http\Controllers\Publisher\InitialRegisterationController::class, 'register'])->name('submit_registration');
     Route::resource('printmachine', \App\Http\Controllers\Publisher\PrintMachineController::class);
 
 });

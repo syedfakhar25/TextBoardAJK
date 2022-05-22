@@ -70,4 +70,8 @@ class User extends Authenticatable
         return $this->hasOne(Document::class,'user_id');
     }
 
+    public function rsgister_publisher(){
+        return $this->hasOne(RegisterPublisher::class,'user_id');
+    }
+
 }

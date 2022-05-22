@@ -57,11 +57,11 @@
                     <!-- /.info-box-content -->
                 </div>
                 <div class="info-box col-md-3">
-                    <a href="#" class="info-box-icon bg-dark elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                    <a href="{{route('initial_registration.index')}}" class="info-box-icon bg-dark elevation-1"><i class="fas fa-angle-double-right"></i></a>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Step 4</span>
-                        <a href="#" class="info-box-number">Apply Now</a>
+                        <a href="{{route('initial_registration.index')}}" class="info-box-number">Apply Now</a>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BindingFacility;
+use App\Models\Document;
 use App\Models\FinancialPosition;
 use App\Models\GodownFacility;
 use App\Models\PowerArrangement;
 use App\Models\PrintingMachine;
 use App\Models\PublishingExperience;
+use App\Models\RegisterPublisher;
 use App\Models\Showroom;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -146,6 +148,9 @@ class PublisherController extends Controller
         $publishing = PublishingExperience::where('user_id', $user_id)->first();
         $godown = GodownFacility::where('user_id', $user_id)->first();
 
+        $documents = Document::where('user_id', $user_id)->first();
+        $register_publisher = RegisterPublisher::where('user_id', $user_id)->first();
+
         return view('publishers.profile')->with([
             'user' => Auth::user(),
             'show_room' => $show_room,
@@ -154,7 +159,9 @@ class PublisherController extends Controller
             'binding' => $binding,
             'financial_position' =>$financial_position,
             'publishing' => $publishing,
-            'godown'=>$godown
+            'godown'=>$godown,
+            'documents' => $documents,
+            'register_publisher' => $register_publisher
         ]);
     }
     //for showing to admin
