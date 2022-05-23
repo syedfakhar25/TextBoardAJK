@@ -1,4 +1,4 @@
-@section('title') Publishers @endsection
+@section('title') Publishers EOI Status @endsection
 @extends('layouts.admin')
 
 @section('content')
@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Manage EOI</h1>
+                    <h1 class="m-0">EOI Status</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -25,10 +25,8 @@
                 @endif
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                        <h3 class="card-title">Advertisments &nbsp;
-                           <a href="{{route('books.create')}}" type="button" class="btn btn-primary">
-                                Add new <i class="fa fa-plus-circle"></i>
-                           </a>
+                        <h3 class="card-title">
+
                         </h3>
                     </div>
 
@@ -37,21 +35,17 @@
                             <thead>
                             <tr>
                                 <th>S. No</th>
-                                <th>Advertisement</th>
-                                <th>Date</th>
+                                <th>Books Added</th>
                                 <th>Price</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $count = 1;?>
-                            @foreach($adverts as $advert)
-                                <tr>
-                                    <td>{{$count++}}</td>
-                                    <td><a href="{{route('eoi_publishers', $advert->id)}}">Check Advert</a></td>
-                                    <td>{{$advert->date}}</td>
-                                    <td>{{$advert->price}} RS/-</td>
-                                </tr>
-                            @endforeach
+                            <td>{{$count++}}</td>
+                            <td>@foreach($books as $bk) <b>{{$bk->books}},</b> @endforeach</td>
+                            <td></td>
+                            <td></td>
                             </tbody>
                         </table>
                     </div>

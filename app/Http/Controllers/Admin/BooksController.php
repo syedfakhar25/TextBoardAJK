@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Advertisment;
 use App\Models\Book;
+use App\Models\EOI;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +23,20 @@ class BooksController extends Controller
         $advert = Advertisment::all();
         return view('books.index')->with([
             'adverts' => $advert
+        ]);
+    }
+
+    //list of publishers against a particular advertisment
+    public function eoiPublishers($id){
+        $eoi_forms = EOI::where('advertisment_id', $id)->get();
+        $user_ids = array();
+        foreach ($eoi_forms as $ef){
+            $user_ids[]= $ef->user_id;
+        }
+
+        $publishers = User::whereIn('id', $user_ids)->get();
+        return view('books.eoi_publishers', [
+            "publishers" => $publishers
         ]);
     }
 
@@ -56,6 +72,7 @@ class BooksController extends Controller
         $request->advert->move(public_path('advertisment'), $advert1);
         $advertisment->advert = $advert1;
         $advertisment->date = $request->date;
+        $advertisment->price = $request->price;
         $advertisment->save();
 
         if(!empty($request->books)){

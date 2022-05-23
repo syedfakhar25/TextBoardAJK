@@ -74,4 +74,8 @@ class User extends Authenticatable
         return $this->hasOne(RegisterPublisher::class,'user_id');
     }
 
+    public function eoi(){
+        return $this->belongsTo(EOI::class, 'user_id');
+    }
+
 }

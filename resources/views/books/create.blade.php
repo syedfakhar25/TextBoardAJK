@@ -35,6 +35,10 @@
                                         <label class="form-label" for="customFile">Last Date</label>
                                         <input type="date" name="date" class="form-control" id="customFile" />
                                     </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="customFile">Price</label>
+                                        <input type="text" name="price" class="form-control" placeholder="e.g; 500000" id="customFile" />
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <hr width="100%">

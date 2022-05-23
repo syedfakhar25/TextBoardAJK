@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //admin will add EOI books and Ad
     Route::resource('books', App\Http\Controllers\Admin\BooksController::class);
+    Route::get('/eoi_publishers/{id}', [App\Http\Controllers\Admin\BooksController::class, 'eoiPublishers'])->name('eoi_publishers');
 
 
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
@@ -36,7 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('initial_registration', \App\Http\Controllers\Publisher\InitialRegisterationController::class);
     Route::get('/submit_registration', [\App\Http\Controllers\Publisher\InitialRegisterationController::class, 'register'])->name('submit_registration');
     Route::get('/approve_registration/{id}', [\App\Http\Controllers\Publisher\InitialRegisterationController::class, 'approve'])->name('approve_registration');
-    Route::resource('printmachine', \App\Http\Controllers\Publisher\PrintMachineController::class);
+    //Route::resource('printmachine', \App\Http\Controllers\Publisher\PrintMachineController::class);
+    Route::resource('eoiform', \App\Http\Controllers\Publisher\EOIController::class);
+    Route::get('/eoiprofile', [\App\Http\Controllers\Publisher\EOIController::class, 'eoiProfile'])->name('eoiprofile');
 
 });
 

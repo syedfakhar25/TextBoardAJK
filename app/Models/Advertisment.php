@@ -13,4 +13,7 @@ class Advertisment extends Model
     public function books(){
         return $this->hasMany(Book::class,'advertisment_id');
     }
+    public function eois(){
+        return $this->hasMany(EOI::class,'advertisment_id');
+    }
 }

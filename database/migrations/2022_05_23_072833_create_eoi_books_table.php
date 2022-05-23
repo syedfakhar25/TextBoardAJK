@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('advertisments', function (Blueprint $table) {
+        Schema::create('eoi_books', function (Blueprint $table) {
             $table->id();
-            $table->date('date')->nullable();
-            $table->string('advert')->nullable();
-            $table->string('price')->nullable();
+            $table->integer('eoi_id');
+            $table->integer('book_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advertisments');
+        Schema::dropIfExists('eoi_books');
     }
 };
