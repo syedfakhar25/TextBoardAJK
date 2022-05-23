@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\RegisterPublisher;
-use App\Models\User;
+use App\Models\Advertisment;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class DahboardController extends Controller
+class BooksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,39 +18,10 @@ class DahboardController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        if(Auth::user()->user_type == 'admin'){
-            $all_publishers = DB::table('users')
-                    ->join('register_publishers', function ($join) {
-                    $join->on('users.id', '=', 'register_publishers.user_id')
-                        ->where('register_publishers.submit', 1);
-                })
-                ->get();
-            $total_publishers = $all_publishers->count();
-
-            $approved_publishers = User::where('user_type', 'publisher')->where('initial_approve', 1)->get();
-            $total_approved  = $approved_publishers->count();
-
-
-            return view('admin.dashboard')->with([
-                'all_publishers' => $all_publishers,
-                'total_publishers' => $total_publishers,
-                'approved_publishers' => $approved_publishers,
-                'total_approved' => $total_approved
-            ]);
-        }
-        elseif(Auth::user()->user_type == 'publisher'){
-            $user = User::find($user_id);
-            $publihser_register = RegisterPublisher::where('user_id', $user_id)->first();
-            return view('publishers.dashboard')->with([
-                'publihser_register' => $publihser_register,
-                'user' => $user
-            ]);
-        }
-        else{
-            return view('admin.dashboard');
-        }
-
+        $advert = Advertisment::all();
+        return view('books.index')->with([
+            'adverts' => $advert
+        ]);
     }
 
     /**
@@ -60,7 +31,13 @@ class DahboardController extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::user()->user_type == 'admin'){
+            return view('books.create');
+        }
+        else{
+            return route('dashboard');
+        }
+
     }
 
     /**
@@ -71,7 +48,27 @@ class DahboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'advert' => ['required','mimes:jpg,bmp,png'],
+        ]);
+        $advertisment = new Advertisment();
+        $advert1 = time() . '.' . $request->advert->extension();
+        $request->advert->move(public_path('advertisment'), $advert1);
+        $advertisment->advert = $advert1;
+        $advertisment->date = $request->date;
+        $advertisment->save();
+
+        if(!empty($request->books)){
+            foreach ($request->books as $key => $value){
+                $book = new Book();
+                $book->books = $value;
+                $book->advertisment_id = $advertisment->id;
+                $book->save();
+            }
+        }
+       return redirect()->route('books.index')->with([
+         'Success' => 'Advertisement Added Successfully!'
+       ]);
     }
 
     /**

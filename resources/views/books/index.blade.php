@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Manage Publishers</h1>
+                    <h1 class="m-0">Manage EOI</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -25,10 +25,10 @@
                 @endif
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                        <h3 class="card-title">Publisher's List &nbsp;
-                           {{-- <a href="{{route('publishers.store')}}" type="button" class="btn btn-primary">
+                        <h3 class="card-title">Advertisments &nbsp;
+                           <a href="{{route('books.create')}}" type="button" class="btn btn-primary">
                                 Add new <i class="fa fa-plus-circle"></i>
-                            </a>--}}
+                           </a>
                         </h3>
                     </div>
 
@@ -37,28 +37,19 @@
                             <thead>
                             <tr>
                                 <th>S. No</th>
-                                <th>Name</th>
-                                <th>Firm Name</th>
-                                <th>Showroom #</th>
-                                <th>Owner #</th>
-                                <th>Status of Firm</th>
+                                <th>Advertisement</th>
+                                <th>Date</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $count = 1;?>
-                                @foreach($publishers as $publisher)
-                                    <tr>
-                                        <td>{{$count++}}</td>
-                                        <td><a href="{{route('publisher_profile_admin', $publisher->user_id)}}">
-                                            {{$publisher->name}}
-                                            </a>
-                                        </td>
-                                        <td>{{$publisher->firm_name}}</td>
-                                        <td>{{$publisher->firm_phone}}</td>
-                                        <td>{{$publisher->firm_cell}}</td>
-                                        <td>{{$publisher->firm_status}}</td>
-                                    </tr>
-                                @endforeach
+                            @foreach($adverts as $advert)
+                                <tr>
+                                    <td>{{$count++}}</td>
+                                    <td>Check Advert</td>
+                                    <td>{{$advert->date}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

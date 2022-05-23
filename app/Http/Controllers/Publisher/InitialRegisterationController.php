@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Publisher;
 
 use App\Http\Controllers\Controller;
 use App\Models\RegisterPublisher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -123,5 +124,16 @@ class InitialRegisterationController extends Controller
         $register_publisher->update();
 
         return redirect()->route('dashboard');
+    }
+
+    //admin approves the publisher
+    public function approve($id){
+        $publisher = User::find($id);
+        $publisher->initial_approve = 1;
+        $publisher->update();
+
+        return redirect()->route('publishers.index')->with([
+            'success' => 'Publisher Approved Successfully'
+        ]);
     }
 }

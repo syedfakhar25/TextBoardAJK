@@ -19,9 +19,19 @@
                         <div class="card-body">
                             <div class="row" >
                                 <h5 style="color: green" align="center">
+                                    @if($user->user_type == 'publisher' && $register_publisher != NULL && $register_publisher->submit !=1)
                                     <em>Go through the information carefully, if anything is missing click edit button then
                                         <a href="{{route('submit_registration')}}" style="color: red "><b><u>Submit</u></b></a>
                                     </em>
+                                    @endif
+                                    @if(Auth::user()->user_type == 'admin' && $user->initial_approve == NULL)
+                                            <em>Go through the information, then
+                                                <a href="{{route('approve_registration', $user->id)}}" style="color: red "><b><u>Approve the Publisher</u></b></a>
+                                            </em>
+                                    @elseif(Auth::user()->user_type == 'admin' && $user->initial_approve == 1)
+                                            <em><b>Approved </b>
+                                            </em>
+                                    @endif
                                 </h5>
                                 <hr width="100%">
                             </div>
@@ -33,7 +43,7 @@
                             <div class="row">
                                 <br>
                             </div>
-                            <h5><b><em>1. General Information</em> &nbsp; <a href="{{route('publisher_application')}}" class="btn btn-danger">Edit</a></b></h5>
+                            <h5><b><em>1. General Information</em> &nbsp;@if(Auth::user()->user_type == 'publisher') <a href="{{route('publisher_application')}}" class="btn btn-danger">Edit</a> @endif</b></h5>
                             <div class="row">
                                 <table class="table table-bordered">
                                     <tbody>
@@ -127,7 +137,7 @@
                                 </table>
                             </div>
                             <div class="row"><hr></div>
-                            <h5><b><em>3. DETAIL OF INFRASTRUCTURE & FACILITIES</em> &nbsp; <a href="{{route('showroom.index')}}" class="btn btn-danger">Edit</a></b></h5>
+                            <h5><b><em>3. DETAIL OF INFRASTRUCTURE & FACILITIES</em> &nbsp;&nbsp;@if(Auth::user()->user_type == 'publisher') <a href="{{route('showroom.index')}}" class="btn btn-danger">Edit</a> @endif</b></h5>
                             <div class="row">
                                 <b>i) SHOWROOM </b>
                                 <table class="table table-bordered">

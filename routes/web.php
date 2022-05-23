@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/publisher_profile', [\App\Http\Controllers\Admin\PublisherController::class, 'publisherProfile'])->name('publisher_profile');
     Route::get('/publisher_profile_admin/{id}', [\App\Http\Controllers\Admin\PublisherController::class, 'publisherProfileAdmin'])->name('publisher_profile_admin');
 
+    //admin will add EOI books and Ad
+    Route::resource('books', App\Http\Controllers\Admin\BooksController::class);
 
 
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
@@ -33,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('documents', \App\Http\Controllers\Publisher\DocumentController::class);
     Route::resource('initial_registration', \App\Http\Controllers\Publisher\InitialRegisterationController::class);
     Route::get('/submit_registration', [\App\Http\Controllers\Publisher\InitialRegisterationController::class, 'register'])->name('submit_registration');
+    Route::get('/approve_registration/{id}', [\App\Http\Controllers\Publisher\InitialRegisterationController::class, 'approve'])->name('approve_registration');
     Route::resource('printmachine', \App\Http\Controllers\Publisher\PrintMachineController::class);
 
 });

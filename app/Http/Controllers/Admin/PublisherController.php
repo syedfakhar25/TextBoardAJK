@@ -15,6 +15,7 @@ use App\Models\Showroom;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PublisherController extends Controller
 {
@@ -25,7 +26,12 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        $users = User::where('id', '!=', Auth::user()->id)->get();
+        $users = DB::table('users')
+            ->join('register_publishers', function ($join) {
+                $join->on('users.id', '=', 'register_publishers.user_id')
+                    ->where('register_publishers.submit', 1);
+            })
+            ->get();
         if(Auth::user()->user_type == 'admin'){
             return view('publishers.index')->with([
                 'publishers' => $users
@@ -166,8 +172,8 @@ class PublisherController extends Controller
     }
     //for showing to admin
     public function publisherProfileAdmin($id){
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id);
+        $user = User::find($id);
+        $user_id = $user->id;
         $show_room = Showroom::where('user_id', $user_id)->first();
         $printing_machine = PrintingMachine::where('user_id', $user_id)->first();
         $power_arrangements = PowerArrangement::where('user_id', $user_id)->first();
@@ -175,6 +181,9 @@ class PublisherController extends Controller
         $financial_position = FinancialPosition::where('user_id', $user_id)->get();
         $publishing = PublishingExperience::where('user_id', $user_id)->first();
         $godown = GodownFacility::where('user_id', $user_id)->first();
+        $documents = Document::where('user_id', $user_id)->first();
+        $register_publisher = RegisterPublisher::where('user_id', $user_id)->first();
+
 
         return view('publishers.profile')->with([
             'user' => $user,
@@ -184,7 +193,10 @@ class PublisherController extends Controller
             'binding' => $binding,
             'financial_position' =>$financial_position,
             'publishing' => $publishing,
-            'godown'=>$godown
+            'godown'=>$godown,
+            'documents' => $documents,
+            'register_publisher' => $register_publisher
+
         ]);
     }
 }

@@ -86,6 +86,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('books.index')}}" class="nav-link ">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Manage EOI
+                            </p>
+                        </a>
+                    </li>
                     @elseif(Auth::user()->user_type == 'publisher')
                         <li class="nav-item menu-open">
                             <a href="{{route('publisher_application')}}" class="nav-link ">
