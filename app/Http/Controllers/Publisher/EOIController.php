@@ -104,6 +104,7 @@ class EOIController extends Controller
     public function eoiProfile(){
         if(Auth::user()->user_type = 'publisher'){
             $user_id = Auth::user()->id;
+            $user = User::find($user_id);
             $eoiform  = EOI::where('user_id', $user_id)->first();
             $eoi_books = EoiBook::where('eoi_id', $eoiform->id)->get();
             $book_ids = array();
@@ -114,7 +115,8 @@ class EOIController extends Controller
 
             return view('eoiform.eoiprofile', [
                 "eoiform" => $eoiform,
-                "books" => $books
+                "books" => $books,
+                "user" => $user
             ]);
         }
         else{

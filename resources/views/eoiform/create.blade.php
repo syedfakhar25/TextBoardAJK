@@ -22,7 +22,7 @@
                     @endif
                     <!-- /.card-header -->
                         <div class="card-body">
-                            <h6 style="color: red; font-weight: bold"><em>Choose the book you want, pay the amount and upload the challan </em></h6>
+                            <h6 style="color: red; font-weight: bold"><em>Choose the book you want, pay the amount and upload the challan for Security Fee</em></h6>
                             <span><b>Total Price: </b> {{$ad->price}} RS/-</span>
                             <hr>
                             <form method="POST" action="{{route('eoiform.store')}}" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
                                 <div class="form-row">
                                     <hr width="100%">
                                     <div class="col-md-3">
-                                        <label>Upload Challan</label>
+                                        <label>Upload Challan of Security Fee</label>
                                         <input class="form-control" name="challan" type="file" required>
                                     </div>
                                 </div>

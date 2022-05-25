@@ -45,7 +45,13 @@
                             <td>{{$count++}}</td>
                             <td>@foreach($books as $bk) <b>{{$bk->books}},</b> @endforeach</td>
                             <td></td>
-                            <td></td>
+                            <td>
+                                @if($user->eoi_approve == 0)
+                                    <em class="text-warning" style="font-weight: bold">Pending</em>
+                                @elseif($user->eoi_approve == 1)
+                                    <em class="text-success" style="font-weight: bold">Approved</em>
+                                @endif
+                            </td>
                             </tbody>
                         </table>
                     </div>

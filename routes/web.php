@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     //admin will add EOI books and Ad
     Route::resource('books', App\Http\Controllers\Admin\BooksController::class);
     Route::get('/eoi_publishers/{id}', [App\Http\Controllers\Admin\BooksController::class, 'eoiPublishers'])->name('eoi_publishers');
+    Route::get('/approve_eoi_publisher/{id}', [App\Http\Controllers\Admin\BooksController::class, 'approveEoiPublisher'])->name('approve_eoi_publisher');
 
 
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);

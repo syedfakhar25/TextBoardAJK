@@ -34,9 +34,26 @@ class BooksController extends Controller
             $user_ids[]= $ef->user_id;
         }
 
-        $publishers = User::whereIn('id', $user_ids)->get();
+       // $publishers = User::whereIn('id', $user_ids)->get();
+
+        $publishers =  DB::table('users')
+            ->selectRaw('e_o_i_s.challan as challan, users.name, users.id, users.firm_name, users.eoi_approve')
+            ->join('e_o_i_s', 'users.id', '=', 'e_o_i_s.user_id')
+            ->whereIn('users.id', $user_ids)->get();
+
         return view('books.eoi_publishers', [
             "publishers" => $publishers
+        ]);
+    }
+
+    //admin will approve EOI publisher on basis of its security fee
+    public function approveEoiPublisher($id){
+        $user = User::find($id);
+        $user->eoi_approve = 1;
+        $user->update();
+
+        return redirect()->back()->with([
+            'success' => 'Approved Successfully!'
         ]);
     }
 

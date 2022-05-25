@@ -25,7 +25,7 @@
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Name Of Firm</label>
-                                        <input type="text" name="firm_name" class="form-control" id="validationDefault01" placeholder="First name" value="${{$publisher->firm_name}}" required>
+                                        <input type="text" name="firm_name" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->firm_name}}" required>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">Phone # of Showroom</label>
@@ -73,11 +73,11 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Father Name</label>
-                                        <input type="text" name="father_name" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->name}}" required>
+                                        <input type="text" name="father_name" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->father_name}}" required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Date of Birth</label>
-                                        <input type="date" name="dob" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->name}}" required>
+                                        <input type="date" name="dob" class="form-control" id="validationDefault01"  required>
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault02">Gender</label>

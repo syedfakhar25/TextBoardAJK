@@ -64,6 +64,7 @@ class DocumentController extends Controller
             $request->merge(['cnic' => $path]);
         }*/
         //get extension
+        //dd($request->purchase_deed);
         $cnic1 = time().'.'.$request->cnic->extension();
         $father_cnic1 = time().'.'.$request->father_cnic->extension();
         $declaration1 = time().'.'.$request->declaration->extension();
