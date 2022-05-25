@@ -46,30 +46,29 @@
                             @foreach($publishers as $publisher)
                                 <tr>
                                     <td>{{$count++}}</td>
-                                    <td><a  type="button" class="" data-toggle="modal" data-target="#exampleModal">
+                                    <td><a  type="button" class="" data-toggle="modal" data-target="#exampleModal{{$publisher->id}}">
                                              <b><u>
                                                      {{$publisher->name}}
                                                  </u>
                                              </b>
                                         </a>
-                                        <div class="row">
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Check the Security Challan of Publisher then Approve
-                                                                </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <img src="{{asset('eoiimages/'. $publisher->challan)}}" height="auto" width="100%">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <a href="{{route('approve_eoi_publisher', $publisher->id)}}" type="button" class="btn btn-primary">Approve</a>
-                                                        </div>
+
+                                        <div class="modal fade" id="exampleModal{{$publisher->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Check the Security Challan of Publisher then Approve
+                                                            </h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img src="{{asset('eoiimages/'. $publisher->challan)}}" height="auto" width="100%">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a href="{{route('approve_eoi_publisher', $publisher->id)}}" type="button" class="btn btn-primary">Approve</a>
                                                     </div>
                                                 </div>
                                             </div>

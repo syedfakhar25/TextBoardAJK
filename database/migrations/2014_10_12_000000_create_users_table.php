@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('firm_gst_no')->nullable();
 
             $table->boolean('initial_approve')->nullable();
+            $table->boolean('eoi_approve')->nullable();
 
 
             $table->string('user_type')->nullable();

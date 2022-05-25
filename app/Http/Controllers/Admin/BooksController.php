@@ -37,7 +37,7 @@ class BooksController extends Controller
        // $publishers = User::whereIn('id', $user_ids)->get();
 
         $publishers =  DB::table('users')
-            ->selectRaw('e_o_i_s.challan as challan, users.name, users.id, users.firm_name, users.eoi_approve')
+            ->selectRaw('e_o_i_s.challan as challan, e_o_i_s.id as eois_id, users.name, users.id, users.firm_name, users.eoi_approve')
             ->join('e_o_i_s', 'users.id', '=', 'e_o_i_s.user_id')
             ->whereIn('users.id', $user_ids)->get();
 
@@ -51,6 +51,7 @@ class BooksController extends Controller
         $user = User::find($id);
         $user->eoi_approve = 1;
         $user->update();
+     //   dd($user);
 
         return redirect()->back()->with([
             'success' => 'Approved Successfully!'
