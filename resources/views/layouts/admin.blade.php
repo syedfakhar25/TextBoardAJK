@@ -94,6 +94,30 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('ircadmin')}}" class="nav-link ">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                IRC
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('krcadmin')}}" class="nav-link ">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                KRC
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('scfadmin')}}" class="nav-link ">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                SCF
+                            </p>
+                        </a>
+                    </li>
                     @elseif(Auth::user()->user_type == 'publisher')
                         <li class="nav-item menu-open">
                             <a href="{{route('publisher_application')}}" class="nav-link ">

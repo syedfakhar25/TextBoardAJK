@@ -124,29 +124,29 @@
                 </div>
                 <div class="row">
                     <div class="info-box col-md-3">
-                        <a href="{{route('eoiform.index')}}" class="info-box-icon bg-danger elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                        <a href="{{route('irc.index')}}" class="info-box-icon bg-danger elevation-1"><i class="fas fa-angle-double-right"></i></a>
                         <div class="info-box-content">
                             <span class="info-box-text">1st</span>
-                            <a href="{{route('eoiform.index')}}" class="info-box-number">
+                            <a href="{{route('irc.index')}}" class="info-box-number">
                                 IRC
                             </a>
                         </div>
                     </div>
                     <div class="info-box col-md-3">
-                        <a href="{{route('eoiprofile')}}" class="info-box-icon bg-success elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                        <a href="{{route('krc.index')}}" class="info-box-icon bg-success elevation-1"><i class="fas fa-angle-double-right"></i></a>
 
                         <div class="info-box-content">
                             <span class="info-box-text">2nd</span>
-                            <a href="{{route('eoiprofile')}}" class="info-box-number">KRC </a>
+                            <a href="{{route('krc.index')}}" class="info-box-number">KRC </a>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
                     <div class="info-box col-md-3">
-                        <a href="{{route('eoiprofile')}}" class="info-box-icon bg-warning elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                        <a href="{{route('scf.index')}}" class="info-box-icon bg-warning elevation-1"><i class="fas fa-angle-double-right"></i></a>
 
                         <div class="info-box-content">
                             <span class="info-box-text">3rd</span>
-                            <a href="{{route('eoiprofile')}}" class="info-box-number">SCF</a>
+                            <a href="{{route('scf.index')}}" class="info-box-number">SCF</a>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

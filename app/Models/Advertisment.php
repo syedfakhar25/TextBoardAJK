@@ -16,4 +16,14 @@ class Advertisment extends Model
     public function eois(){
         return $this->hasMany(EOI::class,'advertisment_id');
     }
+
+    public function firstreview(){
+        return $this->hasMany(firstReview::class,'advertisment_id');
+    }
+    public function secondreview(){
+        return $this->hasMany(secondReview::class,'advertisment_id');
+    }
+    public function thirdreview(){
+        return $this->hasMany(thirdReview::class,'advertisment_id');
+    }
 }

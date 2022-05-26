@@ -101,5 +101,14 @@ class User extends Authenticatable
     public function eoi(){
         return $this->belongsTo(EOI::class, 'user_id');
     }
+    public function firstreview(){
+        return $this->belongsTo(firstReview::class, 'user_id');
+    }
+    public function secondreview(){
+        return $this->belongsTo(secondReview::class, 'user_id');
+    }
+    public function thirdreview(){
+        return $this->belongsTo(thirdReview::class, 'user_id');
+    }
 
 }
