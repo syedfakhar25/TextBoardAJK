@@ -150,6 +150,29 @@
                         </div>
                         <!-- /.info-box-content -->
                     </div>
+                    <div class="info-box col-md-3">
+                        <a href="{{route('publisher_noc')}}" class="info-box-icon bg-warning elevation-1"><i class="fas fa-angle-double-right"></i></a>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">4th</span>
+                            <a href="{{route('publisher_noc')}}" class="info-box-number">NOC</a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </div>
+                <div class="row">
+                    <h4 style="color: #0d6efd; font-weight: bold"><em>D) Royalty</em></h4>
+                </div>
+                <div class="row">
+                    <div class="info-box col-md-3">
+                        <a href="{{route('royalty.index')}}" class="info-box-icon bg-danger elevation-1"><i class="fas fa-angle-double-right"></i></a>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Royalty</span>
+                            <a href="{{route('royalty.index')}}" class="info-box-number">
+                                IRC
+                            </a>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div><!-- /.container-fluid -->

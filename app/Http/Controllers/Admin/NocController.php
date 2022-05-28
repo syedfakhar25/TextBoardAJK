@@ -8,6 +8,7 @@ use App\Models\firstReview;
 use App\Models\NOC;
 use App\Models\thirdReview;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class NocController extends Controller
@@ -71,6 +72,24 @@ class NocController extends Controller
 
         return  redirect()->back()->with([
             "success" => 'NOC Uploaded Successfully'
+        ]);
+    }
+
+    //choose ad for a NOC
+    public function publisherNoc(){
+        $advert = Advertisment::all();
+        return view('noc.publisherchoose')->with([
+            'adverts' => $advert
+        ]);
+    }
+
+    public function NocForPublisher($id){
+        $user = Auth::user();
+        $noc = NOC::where('advertisment_id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+        return view('noc.noc_for_publisher')->with([
+            'noc' => $noc
         ]);
     }
 

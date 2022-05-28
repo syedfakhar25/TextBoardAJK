@@ -67,6 +67,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('krc', \App\Http\Controllers\Publisher\KRCController::class);
     Route::resource('scf', \App\Http\Controllers\Publisher\SCFController::class);
 
+    //noc to publisher
+    Route::get('/publisher_noc', [\App\Http\Controllers\Admin\NocController::class, 'publisherNoc'])->name('publisher_noc');
+    Route::get('/noc_for_publisher/{id}', [\App\Http\Controllers\Admin\NocController::class, 'NocForPublisher'])->name('noc_for_publisher');
 
+    //royalty
+    Route::resource('royalty', \App\Http\Controllers\Publisher\RoyaltyController::class);
+    Route::get('/royalty_add/{id}', [\App\Http\Controllers\Publisher\RoyaltyController::class, 'royaltyAdd'])->name('royalty_add');
 });
 

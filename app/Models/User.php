@@ -114,5 +114,8 @@ class User extends Authenticatable
     public function noc(){
         return $this->hasMany(NOC::class,'user_id');
     }
+    public function royalty(){
+        return $this->hasMany(Royalty::class,'user_id');
+    }
 
 }

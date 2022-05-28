@@ -42,6 +42,7 @@ class DahboardController extends Controller
         elseif(Auth::user()->user_type == 'publisher'){
             $user = User::find($user_id);
             $publihser_register = RegisterPublisher::where('user_id', $user_id)->first();
+
             return view('publishers.dashboard')->with([
                 'publihser_register' => $publihser_register,
                 'user' => $user

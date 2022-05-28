@@ -29,4 +29,7 @@ class Advertisment extends Model
     public function noc(){
         return $this->hasMany(NOC::class,'advertisment_id');
     }
+    public function royalty(){
+        return $this->hasMany(Royalty::class,'advertisment_id');
+    }
 }
