@@ -9,6 +9,7 @@ use App\Models\Royalty;
 use App\Models\RoyaltyChallan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RoyaltyController extends Controller
 {
@@ -102,6 +103,40 @@ class RoyaltyController extends Controller
             ]);
         }
 
+    }
+
+    //royalty admi choose ad
+    public function royaltyAdmin(){
+        $advert = Advertisment::all();
+        return view('royalty.adminchoose')->with([
+            'adverts' => $advert
+        ]);
+    }
+
+    //royalty paid publihsers
+    public function royaltyPublishers($id){
+        $royalty = Royalty::where('advertisment_id', $id)->get();
+        $user_ids = array();
+        foreach ($royalty as $ef){
+            $user_ids[]= $ef->user_id;
+        }
+        $publishers =  DB::table('users')
+            ->selectRaw('royalties.id as royal_id, royalties.total_price, royalties.current_price, users.firm_name, users.name ')
+            ->join('royalties', 'users.id', '=', 'royalties.user_id')
+            ->whereIn('users.id', $user_ids)->get();
+
+        return view('royalty.royalty_publishers')->with([
+            'publishers' => $publishers
+        ]);
+
+    }
+
+    //challans of publisher
+    public function royaltyPublishersChallan($id){
+        $royal_challans = RoyaltyChallan::where('royalty_id', $id)->get();
+        return view('royalty.royalty_challans')->with([
+            "royal_challans" => $royal_challans
+        ]);
     }
 
     /**

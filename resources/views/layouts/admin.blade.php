@@ -118,6 +118,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('royaltyadmin')}}" class="nav-link ">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Royalties
+                            </p>
+                        </a>
+                    </li>
                     @elseif(Auth::user()->user_type == 'publisher')
                         <li class="nav-item menu-open">
                             <a href="{{route('publisher_application')}}" class="nav-link ">
