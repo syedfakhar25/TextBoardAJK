@@ -26,4 +26,7 @@ class Advertisment extends Model
     public function thirdreview(){
         return $this->hasMany(thirdReview::class,'advertisment_id');
     }
+    public function noc(){
+        return $this->hasMany(NOC::class,'advertisment_id');
+    }
 }

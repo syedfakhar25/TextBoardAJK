@@ -79,6 +79,68 @@
                 </div>
                 <!-- ./col -->
             </div>
+            <div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <a href="{{route('ircadmin')}}" class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></a>
+
+                        <div class="info-box-content">
+                            <a href="{{route('ircadmin')}}" class="info-box-text">IRC</a>
+                            <span class="info-box-number">
+
+                </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <a href="{{route('krcadmin')}}" class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></a>
+
+                        <div class="info-box-content">
+                            <a href="{{route('krcadmin')}}" class="info-box-text">KRC</a>
+
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+                <div class="col-12 col-sm-6 col-md-3">
+
+                    <div class="info-box mb-3">
+                        <a href="{{route('scfadmin')}}" class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></a>
+
+                        <div class="info-box-content">
+                            <a href="{{route('scfadmin')}}" class="info-box-text">SCF</a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                        <div class="info-box-content">
+                            <a href="{{route('noc.index')}}" class="info-box-text">NOC</a>
+                            {{--<span class="info-box-number">2,000</span>--}}
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

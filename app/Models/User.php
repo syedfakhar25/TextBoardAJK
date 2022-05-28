@@ -111,4 +111,8 @@ class User extends Authenticatable
         return $this->belongsTo(thirdReview::class, 'user_id');
     }
 
+    public function noc(){
+        return $this->hasMany(NOC::class,'user_id');
+    }
+
 }

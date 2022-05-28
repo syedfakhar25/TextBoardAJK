@@ -46,6 +46,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/scf_publishers/{id}', [\App\Http\Controllers\Publisher\SCFController::class, 'scfPublishers'])->name('scf_publishers');
     Route::get('/approve_scf_publisher/{id}', [\App\Http\Controllers\Publisher\SCFController::class, 'approveScfPublishers'])->name('approve_scf_publisher');
 
+    //admin gives NOC after 3 reviews
+    Route::resource('noc', \App\Http\Controllers\Admin\NocController::class);
+    Route::get('/noc_publishers/{id}', [\App\Http\Controllers\Admin\NocController::class, 'nocPublishers'])->name('noc_publishers');
+
+
+
     Route::resource('publishers', App\Http\Controllers\Admin\PublisherController::class);
     Route::resource('showroom', \App\Http\Controllers\Publisher\ShowroomController::class);
     Route::resource('documents', \App\Http\Controllers\Publisher\DocumentController::class);

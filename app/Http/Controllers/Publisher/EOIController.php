@@ -20,7 +20,7 @@ class EOIController extends Controller
      */
     public function index()
     {
-        $advert = Advertisment::first();
+        $advert = Advertisment::latest('created_at')->first();
         $user_id = Auth::user()->id;
         $eoiform = EOI::where('user_id', $user_id)->first();
         if($eoiform != NULL){
