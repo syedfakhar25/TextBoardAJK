@@ -169,7 +169,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Royalty</span>
                             <a href="{{route('royalty.index')}}" class="info-box-number">
-                                IRC
+                                Royalty
                             </a>
                         </div>
                     </div>

@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="validationDefault01">GST. No (if any)</label>
-                                        <input type="text" name="firm_gst_no" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->firm_gst_no}}" required>
+                                        <input type="text" name="firm_gst_no" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->firm_gst_no}}">
                                     </div>
                                 </div>
 
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Date of Birth</label>
-                                        <input type="date" name="dob" class="form-control" id="validationDefault01"  required>
+                                        <input type="date" name="dob" class="form-control" id="validationDefault01" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault02">Gender</label>
@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Husband Name</label><em style="color: grey">(for Married Women)</em>
-                                        <input type="text" name="husband_name" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->husband_name}}" required>
+                                        <input type="text" name="husband_name" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->husband_name}}">
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">CNIC No.</label>
@@ -107,11 +107,11 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Father CNIC No.</label><em style="color: grey">(if any)</em>
-                                        <input type="text" name="father_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->father_cnic}}" required>
+                                        <input type="text" name="father_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->father_cnic}}" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Husband CNIC No.</label><em style="color: grey">(if any)</em>
-                                        <input type="text" name="husband_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->husband_cnic}}" required>
+                                        <input type="text" name="husband_cnic" class="form-control" id="validationDefault01" placeholder="First name" value="{{$publisher->husband_cnic}}" >
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="validationDefault01">Email</label>

@@ -192,9 +192,9 @@
                                         <label for="validationDefault01">RS/-</label>
                                         <input type="text" name="yearly_amount" class="form-control" id="validationDefault01" placeholder="e.g; 45000" value="" >
                                     </div>
-                                    <div class="col-md-3" style="margin-top: 3%">
+                                    {{--<div class="col-md-3" style="margin-top: 3%">
                                         <a class="btn btn-danger"><i class="fa fa-plus-circle"></i>Add More</a>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12">
